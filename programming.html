@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: url("https://images.unsplash.com/photo-1502657877623-f66bf489d236?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+}
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 50px 0 0 0;
+  border-radius: 25px;
+}
+h1 {
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  font-size: 100px;
+  color: #f7dede;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #ffe5ec;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(45,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 20px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 40px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.price {
+  float: right;
+}
+ ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      text-align: center;
+ }
+  li {
+        display: inline;
+        padding: 5px;
+      
+      text-align: center;
+  }
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <ul>
+      <li><button onclick=dessert()>dessert</button></li>
+      <li><button onclick=maindishes()>main dishes</button></li>
+      <li><button onclick=wraps()>wraps</button></li>
+    </ul>
+
+<h1>max's restaurant</h1>
+<h2>New york made</h2>
+
+<div id="food"> </div>
+
+
+<script>
+maindishesImages = [
+  'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp5-OlbLJOaP5-OoN3_1-Lw1Hue6sPa1toK9oCEzA_OeW0dtuB")',
+  'url("https://s3.amazonaws.com/iexplore_web/images/assets/000/010/661/full/Kabuli_Pulao.jpg?1459215505")',
+  'url("https://germanculture.com.ua/beta/wp-content/uploads/2016/01/Roast-Pork-And-Sauerkraut2.jpg")',
+]
+
+
+dessertImages = [
+  'url("https://www.mariecallendersmeals.com/sites/g/files/qyyrlu306/files/images/product-category/MRE_PLP_Hero_SmDessert_ChocStn_750x440.jpg")',
+  'url("https://crackerbarrel.com/-/media/CrackerBarrel/Menu/Seasonal/FY18-Spring-Promo/Blackberry-Cobbler_780x390.jpg?h=390&w=780&la=en&hash=99A2E15F177BE10EB6B1AA5D87740B4C42C0FA4A")',
+  'url("https://pinchofyum.com/wp-content/uploads/peanut-butter-pie-shooters-3.jpeg")',
+]
+wrapsImages = [
+  'url("https://images-gmi-pmc.edge-generalmills.com/6fa84ebb-4868-48dd-95a9-c6ae2b317170.jpg")',
+  'url("https://www.goldnplump.com/sites/default/files/GNP_PulledChickenWraps_Web2014_0.jpg")',
+  'url("https://assets.marthastewart.com/styles/wmax-520-highdpi/d21/1103_edf_swchickwraps/1103_edf_swchickwraps_sq.jpg?itok=8ATFYLI5")',
+]
+
+maindishesDivs = [
+'<div class="item" onclick=this.classList.toggle("show-description")><p>2 wraps with white meat <span class="price">$17.99</span><br /><small>ketchap union mustard white meat/ come eat in with family and freinds, unions, mustard, vegetables, lettuce tomato pigeon peas with blackbeans surrounded with an wrap.. </small></p></div>',
+
+'<div class="item"><p> tomato with baked fish<span class="price">$12.00</span><br /><small>BBQ with fries and a sauce on the sides with fruits, unions and mashpotato and a apple.</small></p></div>',
+
+'<div class="item"><p> noodles with striped chicken<span class="price">$9.00</span><br /><small>served along with a free soda and ice cream also with 2 chocolate chips cookies.</small></p></div>',
+]
+
+dessertDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>dessert<span class="price">$6.00</span><br /><small>Lollipop tart cotton candy fruit cake ice cream  pudding with chocolate sprinkles, fruits.</small></p></div>',
+  
+  '<div class="item"><p>dessert<span class="price">$5.99</span><br /><small> strawberry cotton candy cheescake and soda with poato and stuffed chicked with lettuce and tomato.</small></p></div>',
+  
+  '<div class="item"><p>dessert<span class="price">$10.00</span><br /><small> beef with chcolate candy and fries with ketchup amd cheese ,maranite chicken served with unions and BBQ sauce.</small></p></div>',
+]
+
+wrapsDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>2 wraps with white meat <span class="price">$7.99</span><br /><small>ketchap union mustard white meat/ come eat in with family and freinds, unions, mustard, vegetables, lettuce tomato pigeon peas with blackbeans surrounded with an wrap.. </small></p></div>',
+  
+  '<div class="item"><p> wraps with lettuce and white meat <span class="price">$11.00</span><br /><small>cheese and fries mixed with vegetables and marante with white sauce and served with a free soda and  </small></p></div>',
+  
+  '<div class="item"><p> wraps with lettuce and white meat <span class="price">$12.00</span><br /><small>BBQ chicken with mozzarella sticks and cellery as an appetizer and wrap around with taco wrap and served with any choice or deesert  </small></p></div>',
+]
+	
+
+
+function dessert() {
+  desserts = document.getElementById("food")
+  desserts.innerHTML = ''
+  desserts.innerHTML += dessertDivs[0]
+  desserts.innerHTML += dessertDivs[1]
+  desserts.innerHTML += dessertDivs[2]
+  //alert("go to desert")
+  items = document.getElementsByClassName("item")
+  for (i=0; i<3; i=i+1) {
+		items[i].style.background = dessertImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+  }
+}
+
+function maindishes() {
+  dishes = document.getElementById("food")
+  dishes.innerHTML = ''
+  dishes.innerHTML += maindishesDivs[0]
+  dishes.innerHTML += maindishesDivs[1]
+  dishes.innerHTML += maindishesDivs[2]
+  //alert("go to maindishes")
+  items = document.getElementsByClassName("item")
+
+  for (i=0; i<3; i=i+1) {
+		items[i].style.background = maindishesImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+  }
+}  
+
+function wraps() {
+  wrap = document.getElementById("food")
+  wrap.innerHTML = ''
+  wrap.innerHTML += wrapsDivs[0]
+  wrap.innerHTML += wrapsDivs[1]
+  wrap.innerHTML += wrapsDivs[2]
+  //alert(" go to wraps")
+  items = document.getElementsByClassName("item")
+  for (i=0; i<3; i=i+1) {
+    items[i].style.background = wrapsImages[i]
+		items[i].style.backgroundSize = '100% 100%'
+  }
+}
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
