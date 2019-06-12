@@ -1,4 +1,4 @@
-<script>
+
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyAUEblo-WA6jk_KHSGyOgJKbwD7JAydwnU",
@@ -11,7 +11,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-</script>
+
 let database = firebase.database()
 let x
 let y
@@ -185,6 +185,7 @@ noLoop()
       alert("Leaderboard: " + JSON.stringify(leaderboard,null,1))
   }
 }
+    }
 
 function generate_alltime_leaderboard() {
 	let alltime_leaderboard = { }
@@ -201,4 +202,4 @@ function generate_alltime_leaderboard() {
 generate_alltime_leaderboard()
 
 
-    }
+
