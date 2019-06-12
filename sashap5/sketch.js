@@ -54,6 +54,15 @@ function draw() {
   circle(p*f,k,45*f)
  
 
+if (touches.length == 0)   {
+
+	controls for main character
+	else { 
+		300 = touches[0].x
+		150 = touches[0].y
+}
+
+
 
   if (keyIsDown(LEFT_ARROW)) {
     p = p - 5;
@@ -70,7 +79,7 @@ function draw() {
   if (keyIsDown(DOWN_ARROW)) {
     k = k + 5;
   }
-
+}
   
   for (i=0; i<enemies; i=i+1) {
     fill(125,70,180)
